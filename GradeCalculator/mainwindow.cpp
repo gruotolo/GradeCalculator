@@ -18,44 +18,29 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_clicked()
 {
     double score=0;
-    QString grade1 =ui->lineEdit->text();
-    QString grade2 = ui->lineEdit_2->text();
-    score = grade2.toDouble() + grade1.toDouble();
-    //double score =static_cast<double>100;
+    QString hw1 =ui->lineEdit->text();
+    QString hw2 = ui->lineEdit_2->text();
+    QString hw3 = ui->lineEdit_4->text();
+    QString midterm = ui->lineEdit_5->text();
+    QString finproj = ui->lineEdit_7->text();
+    QString final = ui->lineEdit_6->text();
+    if (scheme==true)
+        score = (hw2.toDouble()/3) + (hw1.toDouble()/3)+(hw3.toDouble()/3)+(finproj.toDouble()*0.3)+(midterm.toDouble()*0.2)+(final.toDouble()*0.3);
+    else
+        score = (hw2.toDouble()/3) + (hw1.toDouble()/3)+(hw3.toDouble()/3)+(finproj.toDouble()*0.3)+(final.toDouble()*0.5);
     ui->lineEdit_3->setText(QString::number(score));
 
 }
 
 
 
+void MainWindow::on_radioButton_clicked()
+{
+    scheme = true;
 
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+void MainWindow::on_radioButton_2_clicked()
+{
+    scheme = false;
+}
